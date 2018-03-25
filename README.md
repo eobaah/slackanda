@@ -72,8 +72,9 @@ Run the following command in the terminal:
 * [x] Diagram basic experience using Balsamic or Photoshop
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
-* [ ] Create HTML and CSS for baseline experience. Slackanda logo and view three buttons
-* [ ] We’ll need to create empty divs for the modal overlay and the modal itself
+* [x] Create HTML and CSS for baseline experience. Slackanda logo and view three buttons
+* [x] Use descriptive enough variable names where additional documentation isn't needed. Then document anyway :)
+* [x] We’ll need to create empty divs for the modal overlay and the modal itself
 * [ ] Connect with Bing API (WARNING! I’ll be exposing subscription key and as a stretch goal, I should have a solution to resolve this. Perhaps use local storage for the use to input their key in the browser). See example here (https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)
 * [ ] Use a fetch API to update a page with new results without refreshing the browser. Make sure we handle errors with the request.
 * [ ] Display results in the console and decide which information we want. Potential to use filter or map to get the exact data we need. However, make sure we assign an ID using the index of each element so we can retrieve them later.
