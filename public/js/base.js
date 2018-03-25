@@ -7,7 +7,7 @@ console.log('Hello from the browser JavaScript');
 
 // additional search terms to increase search relevance
 const additionalSearchTerms = ' black panther movie poster';
-const selectedCharacter = '';
+let selectedCharacter = '';
 
 // helper functions to get DOM elements
 const createElement = elementType => document.createElement(elementType);
@@ -40,7 +40,8 @@ const checkStatus = (response) => {
 };
 
 // fetch request to retrieve images from search api
-const getImages = () => {
+const getImages = (event) => {
+  selectedCharacter = event.target.dataset.actress;
   const searchTerm = encodeURIComponent(`${selectedCharacter}${additionalSearchTerms}`);
   const host = 'https://api.cognitive.microsoft.com';
   const path = '/bing/v7.0/images/search?q=';
@@ -66,9 +67,7 @@ const getImages = () => {
 
 // assign event listener to the character buttons
 getMultipleElements('.character-selectors').forEach((character) => {
-  character.addEventListener('click', (event) => {
-    event.preventDefault();
-    getImages();
-  });
+  eventCreator(character, 'click', getImages);
 });
+
 // });
