@@ -1,15 +1,16 @@
 {
-  "name": "app-service-hello-world",
-  "description": "Simple Hello World Node.js sample for Azure App Service",
+  "name": "slackanda",
+  "description": "Retrieve images from a search api and display them on screen.",
   "version": "0.0.1",
   "private": true,
   "license": "MIT",
-  "author": "Microsoft",
+  "author": "Eugene Baah",
   "engines": {
     "node": "~0.10.0 || ~4.2.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "dotenv": "^5.0.1",

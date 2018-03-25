@@ -40,7 +40,7 @@ Run the following command in the terminal:
 
 ### Requirement overview
 
-* [ ] Create checklist for the assignment
+* [x] Create checklist for the assignment
 * [ ] Access the Bing image search API and successfully retrieve data from it;
 * [ ] Display that data on a page;
 * [ ] Update the UI of a page without refreshing (AJAX/fetch)
@@ -64,14 +64,14 @@ Run the following command in the terminal:
 ### My checklist for execution
 
 * [x] Setup Node environment on local repo
-* [ ] Setup airbnb linter and prettier
+* [x] Setup airbnb linter and prettier
 * [x] Create Azure resource
 * [x] Create image folders and deploy to CDN
-* [ ] Connect local repo to Azure cloud resource
-* [ ] Purchase www.slackanda.com domain and connect to Azure resource
-* [ ] Diagram basic experience using Balsamic or Photoshop
-  * [ ] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
-  * [ ] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
+* [x] Connect local repo to Azure cloud resource
+* [x] Purchase www.slackanda.com domain and connect to Azure resource
+* [x] Diagram basic experience using Balsamic or Photoshop
+  * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
+  * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
 * [ ] Create HTML and CSS for baseline experience. Slackanda logo and view three buttons
 * [ ] We’ll need to create empty divs for the modal overlay and the modal itself
 * [ ] Connect with Bing API (WARNING! I’ll be exposing subscription key and as a stretch goal, I should have a solution to resolve this. Perhaps use local storage for the use to input their key in the browser). See example here (https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)
