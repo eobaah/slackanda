@@ -1,3 +1,5 @@
+![](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/slack-panther-logo.png)
+
 # Welcome to Slakanda
 
 Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect.
@@ -53,22 +55,39 @@ Run the following command in the terminal:
 * [ ] Make sure it works
 * [ ] Be gracious with documentation
 
-* [ ] Wireframes (Balsamic or Photoshop)
-* [ ] Find websafe fonts (https://websitesetup.org/web-safe-fonts-html-css/)Verdana
-* [ ] Explore UI tests as well as API tests (http://amzotti.github.io/testing/2015/03/16/what-is-the-difference-between-a-test-runner-testing-framework-assertion-library-and-a-testing-plugin/)
-* [ ] Build a rough version just to gain an understanding of potential things to consider
-* [ ] Use these bios for when you hover over a character (https://www.flickeringmyth.com/2018/01/marvel-releases-seven-character-bios-black-panther/)
-* [ ] Setup your server environment on Azure
-* [ ] Host service and purchase Url (host on Azure and purchase SlackPanther.com)
-* [ ] Record background music and host on CDN (https://cdnresoltzcus.blob.core.windows.net/content/videos/trainers/Test/slakanda.m4a)
-* [ ] Rebuild using continuous deployment
+### My checklist for execution
 
-### Testing
+* [ ] Setup Node environment on local repo
+* [ ] Create Azure resource
+* [ ] Create image folders in CDN
+* [ ] Connect local repo to Azure cloud resource
+* [ ] Purchase www.slackanda.com domain and connect to Azure resource
+* [ ] Diagram basic experience using Balsamic or Photoshop
+  * [ ] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
+  * [ ] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
+* [ ] Create HTML and CSS for baseline experience. Slackanda logo and view three buttons
+* [ ] We’ll need to create empty divs for the modal overlay and the modal itself
+* [ ] Connect with Bing API (WARNING! I’ll be exposing subscription key and as a stretch goal, I should have a solution to resolve this. Perhaps use local storage for the use to input their key in the browser). See example here (https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)
+* [ ] Use a fetch API to update a page with new results without refreshing the browser. Make sure we handle errors with the request.
+* [ ] Display results in the console and decide which information we want. Potential to use filter or map to get the exact data we need. However, make sure we assign an ID using the index of each element so we can retrieve them later.
+* [ ] Store the retrieved elements in an Array or Hash to be used for the carousel.
+* [ ] Once data is displayed, then we need to add an event listener to each image element so that clicking on the image opens a modal.
+* [ ] Inside the modal, the image clicked should be displayed. This means we have to remove the images previously displayed in the modal.
+* [ ] Create left and right arrows in the modal.
+* [ ] Clicking on either the left or the right should access the object of images based on the main image displayed in the modal and decrease or increase the index, thus changing the image URL of the main image.
+* [ ] Handle errors for the beginning and end of the carousel
 
-Testing:
+## Tests
 
-* [ ] Write a tests tests to access the API and retrieve search results for each of the Black Panther characters.
+* [ ] Write 3 unit tests for the Bing Search API to successfully retrieve results that contain images.
+* [ ] Test UI components (stretch) using headless browser tests
 
-Files to modify:
+## Stretch
 
-* `test/test.js`
+* [ ] Create fun logo using Photoshop
+* [ ] Create a cool parallax effect
+* [ ] Display video in the background on landing page
+* [ ] Host site images on CDN
+* [ ] Preload images on landing page so they are cached to the browser for faster rendering.
+
+- `test/test.js`
