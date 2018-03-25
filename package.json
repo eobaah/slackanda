@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Microsoft",
   "engines": {
-    "node": ">=6.9.1"
+    "node": "~0.10.0 || ~4.2.0"
   },
   "scripts": {
     "start": "node server.js"
