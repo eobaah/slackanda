@@ -1,6 +1,6 @@
 # Welcome to Slakanda
 
-Use the Bing API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect.
+Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect.
 
 ## Instructions for setup
 
