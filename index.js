@@ -1,11 +1,17 @@
-var http = require('http');
+require('dotenv').config();
+const path = require('path');
+const express = require('express');
 
-var server = http.createServer(function(request, response) {
-  response.writeHead(200, { 'Content-Type': 'text/plain' });
-  response.end('Welcome to Wakanda!');
+const app = express();
+
+app.set('view engine', 'html');
+app.use(express.static(path.resolve(__dirname, 'public')));
+app.set('views', path.resolve(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
+
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
-var port = process.env.PORT || 1337;
-server.listen(port);
-
-console.log('Server running at http://localhost:%d', port);
+app.listen(process.env.PORT || process.env.LOCAL_PORT, () =>
+  console.log(`app is running on port ${process.env.LOCAL_PORT}`));

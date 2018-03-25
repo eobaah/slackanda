@@ -4,6 +4,12 @@
 
 Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect.
 
+My personal goals are the following:
+
+* Build something pleasant!
+* Build something simple
+* Build for performance to enhance productivity
+
 ## Instructions for setup
 
 The app uses a simple file structure for an Express web app server that renders views using HTML.
@@ -13,7 +19,7 @@ public/               # static assets
   css/                # css stylesheets
   js/                 # JavaScript files
   img/                # Image assets will be stored here or on a CDN hosted on Azure
-test/                 # test files for the application
+  test/                 # test files for the application
 views/                # html files
 ```
 
@@ -57,9 +63,10 @@ Run the following command in the terminal:
 
 ### My checklist for execution
 
-* [ ] Setup Node environment on local repo
-* [ ] Create Azure resource
-* [ ] Create image folders in CDN
+* [x] Setup Node environment on local repo
+* [ ] Setup airbnb linter and prettier
+* [x] Create Azure resource
+* [x] Create image folders and deploy to CDN
 * [ ] Connect local repo to Azure cloud resource
 * [ ] Purchase www.slackanda.com domain and connect to Azure resource
 * [ ] Diagram basic experience using Balsamic or Photoshop
