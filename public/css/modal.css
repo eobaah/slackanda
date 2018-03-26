@@ -31,12 +31,13 @@
   border-radius: 5px;
   display: none;
   flex-direction: column;
+  height: 80vh;
   margin: auto;
   padding: 20px;
-  position: fixed;
-  top: 25%;
-  z-index: 3;
+  position: absolute;
+  top: 10%;
   width: 60%;
+  z-index: 3;
   animation-name: fadeIn;
   animation-duration: 1s;
   -webkit-animation-name: fadeIn;
@@ -77,11 +78,35 @@ img.hover-highlight {
   justify-content: center;
 }
 
+.modal-image-parent {
+  margin: 5% 0;
+}
+
+.modal-image {
+  margin: 1% 0;
+  width: 250px;
+}
+
 .modal-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 2% 0;
+}
+
+.modal-footer-image-parent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.modal-footer-thumbnails {
+  height: 30%;
+}
+
+.modal-footer-image {
+  min-height: 40%;
+  width: auto;
 }
 
 .show-modal {
@@ -95,7 +120,7 @@ img.hover-highlight {
     opacity: 0;
   }
   to {
-    top: 25%;
+    top: 10%;
     opacity: 1;
   }
 }
@@ -106,7 +131,7 @@ img.hover-highlight {
     opacity: 0;
   }
   to {
-    top: 25%;
+    top: 10%;
     opacity: 1;
   }
 }
@@ -140,8 +165,18 @@ img.hover-highlight {
   .character-selectors {
     width: 20%;
   }
+
+  /*  Modal styling for the main image selected */
+  .modal-image {
+    width: 300px;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
+
+  /*  Modal styling for the main image selected */
+  .modal-image {
+    width: 100%;
+  }
 }

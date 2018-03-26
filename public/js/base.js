@@ -33,6 +33,7 @@ const modal = getElement('.modal-container');
 const modalOverlay = getElement('.modal-overlay');
 const bodyElement = getElement('body');
 const modalItems = getElement('.modal-items');
+const modalFooter = getElement('.modal-footer');
 const imageContainer = getElement('.image-container');
 const closeButton = getElement('.modal-close-btn');
 
@@ -62,6 +63,7 @@ const checkStatus = (response) => {
 const updateMainModalImage = (element) => {
   // remove images within modal
   removeChild(modalItems);
+  // render main section within the modal
   const imageIndex = element.target.dataset.image;
   const modalImageParent = createElement('div');
   modalImageParent.className = 'modal-image-parent';
@@ -70,6 +72,49 @@ const updateMainModalImage = (element) => {
   modalImageParent.appendChild(mainModalImage);
   mainModalImage.src = getElement(`.image-number-${imageIndex}`).src;
   getElement('.modal-items').appendChild(modalImageParent);
+};
+
+// function to update modal footer images
+const updateModalFooterImages = (element) => {
+  // remove images within modal
+  removeChild(modalFooter);
+  // render main section within the modal
+  const imageIndex = Number(element.target.dataset.image);
+  let previousImageIndex = 0;
+  let nextImageIndex = 0;
+  if (imageIndex >= images.length - 1) {
+    previousImageIndex = Number(imageIndex) - 1;
+    nextImageIndex = 0;
+  } else if (imageIndex < 1) {
+    previousImageIndex = images.length - 1;
+    nextImageIndex = Number(imageIndex) + 1;
+  } else {
+    previousImageIndex = Number(imageIndex) - 1;
+    nextImageIndex = Number(imageIndex) + 1;
+  }
+
+  const modalFooterImageParent = createElement('div');
+  modalFooterImageParent.className = 'modal-footer-image-parent';
+  // create previous image and append to parent
+  const prevModalFooterImage = createElement('img');
+  prevModalFooterImage.className = `modal-footer-image modal-image-${previousImageIndex}`;
+  modalFooterImageParent.appendChild(prevModalFooterImage);
+  prevModalFooterImage.src = getElement(`.image-number-${previousImageIndex}`).src;
+  modalFooter.appendChild(modalFooterImageParent);
+  // create main image and append to parent
+  const mainModalFooterImage = createElement('img');
+  mainModalFooterImage.className = `modal-footer-image modal-image-${imageIndex}`;
+  modalFooterImageParent.appendChild(mainModalFooterImage);
+  mainModalFooterImage.src = getElement(`.image-number-${imageIndex}`).src;
+  modalFooter.appendChild(modalFooterImageParent);
+  // create next image and append to parent
+  const nextModalFooterImage = createElement('img');
+  nextModalFooterImage.className = `modal-footer-image modal-image-${nextImageIndex}`;
+  modalFooterImageParent.appendChild(nextModalFooterImage);
+  nextModalFooterImage.src = getElement(`.image-number-${nextImageIndex}`).src;
+  modalFooter.appendChild(modalFooterImageParent);
+
+  console.log(previousImageIndex, imageIndex, nextImageIndex);
 };
 
 const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
@@ -86,6 +131,7 @@ const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
   // add event listener to image tile which opens modal upon click
   eventCreator(imageTile, 'click', openModal);
   eventCreator(imageTile, 'click', updateMainModalImage);
+  eventCreator(imageTile, 'click', updateModalFooterImages);
 
   // create the image thumbnail and assign unique identifiers for easier retrieval
   const imageElement = createElement('img');
@@ -110,7 +156,7 @@ const getImages = (event) => {
   const searchTerm = encodeURIComponent(`${selectedCharacter}${additionalSearchTerms}`);
   const host = 'https://api.cognitive.microsoft.com';
   const path = '/bing/v7.0/images/search?q=';
-  const sizeFilter = '&size=wallpaper';
+  const sizeFilter = '&Size:Height:200';
   const subscriptionKey = 'aa81bfbc07984ac5b3aac2130e041cb6';
   const url = `${host}${path}${searchTerm}${sizeFilter}`;
 
