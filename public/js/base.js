@@ -110,7 +110,7 @@ const updateModalFooterImages = (element) => {
 
   // create modal footer image tile and append to parent
   const mainModalFooterImageTile = createElement('div');
-  mainModalFooterImageTile.className = `modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
+  mainModalFooterImageTile.className = `modal-image-highlight modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
   modalFooterImageParent.appendChild(mainModalFooterImageTile);
 
   // create main image and append to image tile
