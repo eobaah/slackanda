@@ -95,26 +95,40 @@ const updateModalFooterImages = (element) => {
 
   const modalFooterImageParent = createElement('div');
   modalFooterImageParent.className = 'modal-footer-image-parent';
-  // create previous image and append to parent
+  modalFooter.appendChild(modalFooterImageParent);
+
+  // create previous image tile and append to parent
+  const prevModalFooterImageTile = createElement('div');
+  prevModalFooterImageTile.className = `modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
+  modalFooterImageParent.appendChild(prevModalFooterImageTile);
+
+  // create previous image  and append to prev image tile
   const prevModalFooterImage = createElement('img');
   prevModalFooterImage.className = `modal-footer-image modal-image-${previousImageIndex}`;
-  modalFooterImageParent.appendChild(prevModalFooterImage);
   prevModalFooterImage.src = getElement(`.image-number-${previousImageIndex}`).src;
-  modalFooter.appendChild(modalFooterImageParent);
-  // create main image and append to parent
+  prevModalFooterImageTile.appendChild(prevModalFooterImage);
+
+  // create modal footer image tile and append to parent
+  const mainModalFooterImageTile = createElement('div');
+  mainModalFooterImageTile.className = `modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
+  modalFooterImageParent.appendChild(mainModalFooterImageTile);
+
+  // create main image and append to image tile
   const mainModalFooterImage = createElement('img');
   mainModalFooterImage.className = `modal-footer-image modal-image-${imageIndex}`;
-  modalFooterImageParent.appendChild(mainModalFooterImage);
   mainModalFooterImage.src = getElement(`.image-number-${imageIndex}`).src;
-  modalFooter.appendChild(modalFooterImageParent);
+  mainModalFooterImageTile.appendChild(mainModalFooterImage);
+
+  // create next modal footer image tile and append to parent
+  const nextModalFooterImageTile = createElement('div');
+  nextModalFooterImageTile.className = `modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
+  modalFooterImageParent.appendChild(nextModalFooterImageTile);
+
   // create next image and append to parent
   const nextModalFooterImage = createElement('img');
   nextModalFooterImage.className = `modal-footer-image modal-image-${nextImageIndex}`;
-  modalFooterImageParent.appendChild(nextModalFooterImage);
   nextModalFooterImage.src = getElement(`.image-number-${nextImageIndex}`).src;
-  modalFooter.appendChild(modalFooterImageParent);
-
-  console.log(previousImageIndex, imageIndex, nextImageIndex);
+  nextModalFooterImageTile.appendChild(nextModalFooterImage);
 };
 
 const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
@@ -156,7 +170,7 @@ const getImages = (event) => {
   const searchTerm = encodeURIComponent(`${selectedCharacter}${additionalSearchTerms}`);
   const host = 'https://api.cognitive.microsoft.com';
   const path = '/bing/v7.0/images/search?q=';
-  const sizeFilter = '&Size:Height:200';
+  const sizeFilter = '&w=200&h=200';
   const subscriptionKey = 'aa81bfbc07984ac5b3aac2130e041cb6';
   const url = `${host}${path}${searchTerm}${sizeFilter}`;
 

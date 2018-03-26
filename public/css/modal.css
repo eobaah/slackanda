@@ -66,6 +66,7 @@ img.hover-highlight {
 .modal-header {
   display: flex;
   justify-content: flex-end;
+  height: 5%;
 }
 
 .modal-close-btn {
@@ -76,15 +77,17 @@ img.hover-highlight {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-grow: 1;
 }
 
 .modal-image-parent {
   margin: 5% 0;
+  height: 50%;
 }
 
 .modal-image {
   margin: 1% 0;
-  width: 250px;
+  max-height: 300px;
 }
 
 .modal-footer {
@@ -92,21 +95,29 @@ img.hover-highlight {
   flex-direction: row;
   justify-content: space-between;
   margin: 2% 0;
+  height: 30%;
 }
 
 .modal-footer-image-parent {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
 
+.modal-footer-image-tile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 30%;
+}
+
 .modal-footer-thumbnails {
-  height: 30%;
+  /* height: 30%; */
 }
 
 .modal-footer-image {
-  min-height: 40%;
-  width: auto;
+  max-height: 90px;
 }
 
 .show-modal {
@@ -168,7 +179,6 @@ img.hover-highlight {
 
   /*  Modal styling for the main image selected */
   .modal-image {
-    width: 300px;
   }
 }
 
@@ -177,6 +187,5 @@ img.hover-highlight {
 
   /*  Modal styling for the main image selected */
   .modal-image {
-    width: 100%;
   }
 }
