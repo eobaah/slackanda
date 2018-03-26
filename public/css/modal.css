@@ -1,0 +1,157 @@
+/* MODAL */
+
+.disable-scroll {
+  overflow: hidden;
+  position: fixed;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  height: 100vh;
+  left: 0;
+  padding: 100px 0 0 0;
+  position: absolute;
+  right: 0;
+  width: 100vw;
+  z-index: 1;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+}
+
+.modal-container {
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(110, 107, 107, 1);
+  display: none;
+  flex-direction: column;
+  top: 25%;
+  margin: auto;
+  padding: 20px;
+  position: fixed;
+  z-index: 3;
+  width: 60%;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-name: slideIn;
+  animation-duration: 0.4s;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+}
+
+.close:hover,
+.close:focus {
+  color: rgba(125, 119, 119, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+img.hover-highlight {
+  transition: 0.3s;
+}
+
+.hover-highlight:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-btn {
+  cursor: pointer;
+}
+
+.modal-footer,
+.modal-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-footer {
+  margin: 2% 0;
+}
+.modal-footer > button {
+  box-shadow: 3px 5px 3px rgb(136, 134, 134);
+  width: 10%;
+  align-items: flex-start;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(157, 151, 136);
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: rgb(157, 151, 136);
+}
+
+.show-modal {
+  display: flex;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {
+    top: 0%;
+    opacity: 0;
+  }
+  to {
+    top: 25%;
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    top: 0%;
+    opacity: 0;
+  }
+  to {
+    top: 25%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  /* button to select characters */
+  .button-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .character-selectors {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+}

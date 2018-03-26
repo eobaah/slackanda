@@ -41,9 +41,9 @@ Run the following command in the terminal:
 ### Requirement overview
 
 * [x] Create checklist for the assignment
-* [ ] Access the Bing image search API and successfully retrieve data from it;
-* [ ] Display that data on a page;
-* [ ] Update the UI of a page without refreshing (AJAX/fetch)
+* [x] Access the Bing image search API and successfully retrieve data from it;
+* [x] Display that data on a page;
+* [x] Update the UI of a page without refreshing (AJAX/fetch)
 * [ ] Build a polished user experience that makes people smile
 * [ ] Do all of the above using only native JavaScript (no libraries such as jQuery or React, although CSS and JavaScript preprocessors and polyfills are fine).
 * [ ] Stick to JavaScript (e.g. not TypeScript or similar languages) for this exercise, and don't cheat
@@ -73,12 +73,13 @@ Run the following command in the terminal:
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
 * [x] Create HTML and CSS for baseline experience. Slackanda logo and view three buttons
+* [x] Organize CSS where the properties for each class are in alphabetical order
 * [x] Use descriptive enough variable names where additional documentation isn't needed. Then document anyway :)
 * [x] We’ll need to create empty divs for the modal overlay and the modal itself
-* [ ] Connect with Bing API (WARNING! I’ll be exposing subscription key and as a stretch goal, I should have a solution to resolve this. Perhaps use local storage for the use to input their key in the browser). See example here (https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)
-* [ ] Use a fetch API to update a page with new results without refreshing the browser. Make sure we handle errors with the request.
-* [ ] Display results in the console and decide which information we want. Potential to use filter or map to get the exact data we need. However, make sure we assign an ID using the index of each element so we can retrieve them later.
-* [ ] Store the retrieved elements in an Array or Hash to be used for the carousel.
+* [x] Connect with Bing API (WARNING! I’ll be exposing subscription key and as a stretch goal, I should have a solution to resolve this. Perhaps use local storage for the use to input their key in the browser). See example here (https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)
+* [x] Use a fetch API to update a page with new results without refreshing the browser. Make sure we handle errors with the request.
+* [x] Display results in the console and decide which information we want. Potential to use filter or map to get the exact data we need. However, make sure we assign an ID using the index of each element so we can retrieve them later.
+* [ ] Store the retrieved elements in an Array or Hash to be used for the carousel. Warning! It's not good practice to store random global variables... makes me miss react and redux.
 * [ ] Once data is displayed, then we need to add an event listener to each image element so that clicking on the image opens a modal.
 * [ ] Inside the modal, the image clicked should be displayed. This means we have to remove the images previously displayed in the modal.
 * [ ] Create left and right arrows in the modal.

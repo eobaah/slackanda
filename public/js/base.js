@@ -5,20 +5,12 @@ console.log('Hello from the browser JavaScript');
 // for development purposes, we want to use a prompt to obtain the subcription keyframes
 // we'll use local storage for the users subscription key or store the information in the cookie
 
-// additional search terms to increase search relevance
-const additionalSearchTerms = ' black panther movie';
-let selectedCharacter = '';
+let images = [];
 
 // helper functions to get DOM elements
 const createElement = elementType => document.createElement(elementType);
 const getElement = className => document.querySelector(className);
 const getMultipleElements = className => document.querySelectorAll(className);
-// const futureImageContainerChild = (className) => {
-//   if (document.querySelector(className)) {
-//     return document.querySelector(className);
-//   }
-//   return '';
-// };
 
 // add an event listener to an element
 const eventCreator = (button, eventType, func) => {
@@ -40,8 +32,21 @@ const removeChild = (parentElement) => {
 const modal = getElement('.modal-container');
 const modalOverlay = getElement('.modal-overlay');
 const bodyElement = getElement('body');
-const modalIems = getElement('.modal-items');
+const modalItems = getElement('.modal-items');
 const imageContainer = getElement('.image-container');
+const closeButton = getElement('.modal-close-btn');
+
+const openModal = () => {
+  modalOverlay.classList.add('show-modal');
+  modal.classList.add('show-modal');
+  bodyElement.classList.add('disable-scroll');
+};
+
+const closeModal = () => {
+  modalOverlay.classList.remove('show-modal');
+  modal.classList.remove('show-modal');
+  bodyElement.classList.remove('disable-scroll');
+};
 
 // handle error from fetch request
 const checkStatus = (response) => {
@@ -54,31 +59,39 @@ const checkStatus = (response) => {
 };
 
 const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
+  // thumbnail image display properties
   const height = 60;
   const width = Math.round(height * (imageWidth / imageHeight));
   // these elements only appear after a fetch request or a modal has been opened
   const imageContainerChild = getElement('#image-container-child');
-  // create DOM elements
+
+  // create image tile div as a container for the image
   const imageTile = createElement('div');
-  const imageElement = createElement('img');
   imageTile.dataset.imageTile = index;
+  imageTile.className += `image-tile-number-${index} img-tile-thumbnail cursor-pointer`;
+  // add event listener to image tile which opens modal upon click
+  eventCreator(imageTile, 'click', openModal);
+
+  // create the image thumbnail and assign unique identifiers for easier retrieval
+  const imageElement = createElement('img');
   imageElement.src = imageThumbnailUrl;
   imageElement.dataset.image = index;
-  imageElement.className += `image-${index} img-thumbnail`;
+  imageElement.className += `image-number-${index} img-thumbnail`;
   imageElement.height = height;
   imageElement.width = width;
 
   // append DOM elements created above
   imageContainerChild.appendChild(imageTile);
   imageTile.appendChild(imageElement);
-
-  // add event listener to Image Tile allowing user to open a modal
+  return imageTile;
 };
 
 // fetch request to retrieve images from search api
 const getImages = (event) => {
   removeChild(imageContainer);
-  selectedCharacter = event.target.dataset.actress;
+  const selectedCharacter = event.target.dataset.actress;
+  // additional search terms to increase search relevance
+  const additionalSearchTerms = ' black panther movie poster';
   const searchTerm = encodeURIComponent(`${selectedCharacter}${additionalSearchTerms}`);
   const host = 'https://api.cognitive.microsoft.com';
   const path = '/bing/v7.0/images/search?q=';
@@ -104,16 +117,19 @@ const getImages = (event) => {
       // append this child to the main image container. Creating a single entrypoint
       // allows us to remove the images without looping through all the child elements
       imageContainer.appendChild(createImageContainerChild);
-      const images = response.value.map((image, index) =>
+      images = response.value.map((image, index) =>
         renderImages(image.thumbnailUrl, image.thumbnail.width, image.thumbnail.height, index));
-      return images;
-    })
-    .catch(console.log);
+      console.log('array of image objects', images);
+    });
+  // .catch(console.log);
 };
 
 // assign event listener to the character buttons
 getMultipleElements('.character-selectors').forEach((character) => {
   eventCreator(character, 'click', getImages);
 });
+
+// attaching event listener to close modal button
+eventCreator(closeButton, 'click', closeModal);
 
 // });

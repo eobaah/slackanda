@@ -38,14 +38,17 @@ body {
 /* button to select characters */
 .button-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   margin: 1% auto;
-  width: 100%;
+  width: 80%;
 }
 
 .character-selectors {
   cursor: pointer;
   border-radius: 5px;
+  height: 30px;
+  margin: 2% 0;
 }
 
 .character-selectors:focus {
@@ -54,13 +57,29 @@ body {
 
 /*  Container for images on the main landing page (not inside the modal)*/
 .image-container {
-  background-color: rgba(20, 22, 20, 0.1);
   padding: 10px;
+  width: 80%;
 }
 
 #image-container-child {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 5% 0;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  /* button to select characters */
+  .button-container {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .character-selectors {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
 }
