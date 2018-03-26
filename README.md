@@ -59,7 +59,7 @@ Run the following command in the terminal:
 * [x] Code readability and organization
 * [x] Think carefully about error handling
 * [ ] Make sure it works
-* [ ] Be gracious with documentation
+* [x] Be gracious with documentation
 
 ### My checklist for execution
 
@@ -68,7 +68,7 @@ Run the following command in the terminal:
 * [x] Create Azure resource
 * [x] Create image folders and deploy to CDN
 * [x] Connect local repo to Azure cloud resource
-* [x] Purchase www.slackanda.com domain and connect to Azure resource
+* [x] Purchase www.slackpanther.com domain and connect to Azure resource
 * [x] Diagram basic experience using Balsamic or Photoshop
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
@@ -82,7 +82,7 @@ Run the following command in the terminal:
 * [ ] Store the retrieved elements in an Array or Hash to be used for the carousel. Warning! It's not good practice to store random global variables... makes me miss react and redux.
 * [x] Once data is displayed, then we need to add an event listener to each image element so that clicking on the image opens a modal.
 * [ ] Inside the modal, the image clicked should be displayed. This means we have to remove the images previously displayed in the modal.
-* [ ] Create left and right arrows in the modal.
+* [x] Create left and right arrows in the modal.
 * [ ] Clicking on either the left or the right should access the object of images based on the main image displayed in the modal and decrease or increase the index, thus changing the image URL of the main image.
 * [ ] Handle errors for the beginning and end of the carousel
 
@@ -93,10 +93,10 @@ Run the following command in the terminal:
 
 ## Stretch
 
+* [x] Host site images on CDN
 * [x] Create fun logo using Photoshop
+* [ ] Preload images on landing page so they are cached to the browser for faster rendering.
 * [ ] Create a cool parallax effect
 * [ ] Display video in the background on landing page
-* [x] Host site images on CDN
-* [ ] Preload images on landing page so they are cached to the browser for faster rendering.
 
 - `test/test.js`

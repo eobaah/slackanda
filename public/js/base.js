@@ -3,7 +3,7 @@
 
 console.log('Hello from the browser JavaScript');
 // for development purposes, we want to use a prompt to obtain the subcription keyframes
-// we'll use local storage for the users subscription key or store the information in the cookie
+// we'll use local storage for the user's subscription key or store the information in the cookie
 
 let images = [];
 
@@ -12,17 +12,17 @@ const createElement = elementType => document.createElement(elementType);
 const getElement = className => document.querySelector(className);
 const getMultipleElements = className => document.querySelectorAll(className);
 
-// add an event listener to an element
+// helper function to add an event listener to an element
 const eventCreator = (button, eventType, func) => {
   if (button) {
-    button.addEventListener(eventType, (event) => {
+    button.addEventListener(eventType, event => {
       func(event);
     });
   }
 };
 
-// remove child elements based on the parent
-const removeChild = (parentElement) => {
+// helper function to remove child elements based on the parent
+const removeChild = parentElement => {
   while (parentElement.children[0] !== undefined) {
     parentElement.removeChild(parentElement.children[0]);
   }
@@ -37,34 +37,22 @@ const modalFooter = getElement('.modal-footer');
 const imageContainer = getElement('.image-container');
 const closeButton = getElement('.modal-close-btn');
 
+// open modal when clicking on a thumbnail
 const openModal = () => {
   modalOverlay.classList.add('show-modal');
   modal.classList.add('show-modal');
   bodyElement.classList.add('disable-scroll');
 };
 
+// close modal when clicking on the X icon
 const closeModal = () => {
   modalOverlay.classList.remove('show-modal');
   modal.classList.remove('show-modal');
   bodyElement.classList.remove('disable-scroll');
 };
 
-// handle error from fetch request
-const checkStatus = (response) => {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
-  }
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
-};
-
-// function to update main modal images
-const updateMainModalImage = (element) => {
-  // remove images within modal
-  removeChild(modalItems);
-  // render main section within the modal
-  const imageIndex = element.target.dataset.image;
+// render main section within the modal which is used for both creating and updating
+const renderModalItemSection = imageIndex => {
   const modalImageParent = createElement('div');
   modalImageParent.className = 'modal-image-parent';
   const mainModalImage = createElement('img');
@@ -74,14 +62,11 @@ const updateMainModalImage = (element) => {
   getElement('.modal-items').appendChild(modalImageParent);
 };
 
-// function to update modal footer images
-const updateModalFooterImages = (element) => {
-  // remove images within modal
-  removeChild(modalFooter);
-  // render main section within the modal
-  const imageIndex = Number(element.target.dataset.image);
+// render modal footer section which is used for both creating and updating
+const renderModalFooter = imageIndex => {
   let previousImageIndex = 0;
   let nextImageIndex = 0;
+
   if (imageIndex >= images.length - 1) {
     previousImageIndex = Number(imageIndex) - 1;
     nextImageIndex = 0;
@@ -93,46 +78,110 @@ const updateModalFooterImages = (element) => {
     nextImageIndex = Number(imageIndex) + 1;
   }
 
+  // create modal footer parent which will be the anchor for all the modal image tiles
   const modalFooterImageParent = createElement('div');
   modalFooterImageParent.className = 'modal-footer-image-parent';
   modalFooter.appendChild(modalFooterImageParent);
 
-  // create previous image tile and append to parent
+  // create previous image tile wrapper and append to parent
   const prevModalFooterImageTile = createElement('div');
   prevModalFooterImageTile.className = `modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
   modalFooterImageParent.appendChild(prevModalFooterImageTile);
 
-  // create previous image  and append to prev image tile
+  // create previous modal image and append to prev image tile wrapper
   const prevModalFooterImage = createElement('img');
-  prevModalFooterImage.className = `modal-footer-image modal-image-${previousImageIndex}`;
+  prevModalFooterImage.className = `cursor-pointer modal-footer-image modal-image-${previousImageIndex}`;
   prevModalFooterImage.src = getElement(`.image-number-${previousImageIndex}`).src;
+  prevModalFooterImage.dataset.image = previousImageIndex;
   prevModalFooterImageTile.appendChild(prevModalFooterImage);
 
-  // create modal footer image tile and append to parent
+  // create main image tile wrapper and append to parent
   const mainModalFooterImageTile = createElement('div');
   mainModalFooterImageTile.className = `modal-image-highlight modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
   modalFooterImageParent.appendChild(mainModalFooterImageTile);
 
-  // create main image and append to image tile
+  // create main image and append to image tile wrapper
   const mainModalFooterImage = createElement('img');
-  mainModalFooterImage.className = `modal-footer-image modal-image-${imageIndex}`;
+  mainModalFooterImage.className = `cursor-pointer modal-footer-image modal-image-${imageIndex}`;
   mainModalFooterImage.src = getElement(`.image-number-${imageIndex}`).src;
+  mainModalFooterImage.dataset.image = imageIndex;
   mainModalFooterImageTile.appendChild(mainModalFooterImage);
 
-  // create next modal footer image tile and append to parent
+  // create next modal footer image tile wrapper and append to parent
   const nextModalFooterImageTile = createElement('div');
   nextModalFooterImageTile.className = `modal-footer-image-tile modal-image-tile-${previousImageIndex}`;
+  nextModalFooterImageTile.dataset.image = previousImageIndex;
   modalFooterImageParent.appendChild(nextModalFooterImageTile);
 
-  // create next image and append to parent
+  // create next modal image and append to its wrapper
   const nextModalFooterImage = createElement('img');
-  nextModalFooterImage.className = `modal-footer-image modal-image-${nextImageIndex}`;
+  nextModalFooterImage.className = `cursor-pointer modal-footer-image modal-image-${nextImageIndex}`;
   nextModalFooterImage.src = getElement(`.image-number-${nextImageIndex}`).src;
+  nextModalFooterImage.dataset.image = nextImageIndex;
   nextModalFooterImageTile.appendChild(nextModalFooterImage);
+
+  // add event listener to each newly created thumbnail
+  getMultipleElements('.modal-footer-image').forEach(selectedImage => {
+    eventCreator(selectedImage, 'click', () => {
+      updateMainModalImage(selectedImage);
+      updateFooterModalImage(selectedImage);
+    });
+  });
 };
 
+// handle error from fetch request
+const checkStatus = response => {
+  if (response.status >= 200 && response.status < 300) {
+    return response;
+  }
+  const error = new Error(response.statusText);
+  error.response = response;
+  throw error;
+};
+
+// function to create main modal images
+const createMainModalImage = element => {
+  // remove any existing images within modal
+  removeChild(modalItems);
+
+  // render main section within the modal
+  const imageIndex = Number(element.target.dataset.image);
+  renderModalItemSection(imageIndex);
+};
+
+// function to update the main model image by clicking on thumbnail
+const updateMainModalImage = element => {
+  // remove images within modal
+  removeChild(modalItems);
+
+  // render modal item section
+  const imageIndex = Number(element.dataset.image);
+  renderModalItemSection(imageIndex);
+};
+
+// function to create modal footer images
+const createModalFooterImages = element => {
+  // remove images within modal
+  removeChild(modalFooter);
+
+  // render main section within the modal
+  const imageIndex = Number(element.target.dataset.image);
+  renderModalFooter(imageIndex);
+};
+
+// function to update modal footer images
+const updateFooterModalImage = element => {
+  // remove images within modal
+  removeChild(modalFooter);
+
+  // render main section within the modal
+  const imageIndex = Number(element.dataset.image);
+  renderModalFooter(imageIndex);
+};
+
+// function to render thumbnail on the landing page
 const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
-  // thumbnail image display properties
+  // thumbnail image display to ensure all images have the same height
   const height = 60;
   const width = Math.round(height * (imageWidth / imageHeight));
   // these elements only appear after a fetch request or a modal has been opened
@@ -140,12 +189,12 @@ const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
 
   // create image tile div as a container for the image
   const imageTile = createElement('div');
-  imageTile.dataset.imageTile = index;
+  imageTile.dataset.image = index;
   imageTile.className += `image-tile-number-${index} img-tile-thumbnail cursor-pointer`;
   // add event listener to image tile which opens modal upon click
   eventCreator(imageTile, 'click', openModal);
-  eventCreator(imageTile, 'click', updateMainModalImage);
-  eventCreator(imageTile, 'click', updateModalFooterImages);
+  eventCreator(imageTile, 'click', createMainModalImage);
+  eventCreator(imageTile, 'click', createModalFooterImages);
 
   // create the image thumbnail and assign unique identifiers for easier retrieval
   const imageElement = createElement('img');
@@ -162,7 +211,7 @@ const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
 };
 
 // fetch request to retrieve images from search api
-const getImages = (event) => {
+const getImages = event => {
   removeChild(imageContainer);
   const selectedCharacter = event.target.dataset.actress;
   // additional search terms to increase search relevance
@@ -178,14 +227,14 @@ const getImages = (event) => {
     method: 'GET',
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
-      Accept: 'application/json',
-    },
+      Accept: 'application/json'
+    }
   };
 
   fetch(url, fetchOptions)
     .then(checkStatus)
     .then(response => response.json())
-    .then((response) => {
+    .then(response => {
       // create a child element which will be the main parent for all images created below
       const createImageContainerChild = createElement('div');
       createImageContainerChild.setAttribute('id', 'image-container-child');
@@ -193,15 +242,16 @@ const getImages = (event) => {
       // allows us to remove the images without looping through all the child elements
       imageContainer.appendChild(createImageContainerChild);
       images = response.value.map((image, index) =>
-        renderImages(image.thumbnailUrl, image.thumbnail.width, image.thumbnail.height, index));
+        renderImages(image.thumbnailUrl, image.thumbnail.width, image.thumbnail.height, index)
+      );
     })
-    .catch((err) => {
+    .catch(err => {
       console.log('Fetch response failed with the following error: ', err);
     });
 };
 
 // assign event listener to the character buttons
-getMultipleElements('.character-selectors').forEach((character) => {
+getMultipleElements('.character-selectors').forEach(character => {
   eventCreator(character, 'click', getImages);
 });
 
