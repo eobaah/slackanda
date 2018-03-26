@@ -28,12 +28,13 @@
 .modal-container {
   background-color: rgba(255, 255, 255, 1);
   border: 1px solid rgba(110, 107, 107, 1);
+  border-radius: 5px;
   display: none;
   flex-direction: column;
-  top: 25%;
   margin: auto;
   padding: 20px;
   position: fixed;
+  top: 25%;
   z-index: 3;
   width: 60%;
   animation-name: fadeIn;
@@ -70,28 +71,17 @@ img.hover-highlight {
   cursor: pointer;
 }
 
-.modal-footer,
 .modal-items {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 2% 0;
-}
-.modal-footer > button {
-  box-shadow: 3px 5px 3px rgb(136, 134, 134);
-  width: 10%;
-  align-items: flex-start;
-  text-align: center;
-  cursor: pointer;
-  background-color: rgb(157, 151, 136);
-  box-sizing: border-box;
-  padding: 2px 6px 3px;
-  border-width: 3px;
-  border-style: solid;
-  border-color: rgb(157, 151, 136);
 }
 
 .show-modal {

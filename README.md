@@ -45,19 +45,19 @@ Run the following command in the terminal:
 * [x] Display that data on a page;
 * [x] Update the UI of a page without refreshing (AJAX/fetch)
 * [ ] Build a polished user experience that makes people smile
-* [ ] Do all of the above using only native JavaScript (no libraries such as jQuery or React, although CSS and JavaScript preprocessors and polyfills are fine).
-* [ ] Stick to JavaScript (e.g. not TypeScript or similar languages) for this exercise, and don't cheat
-* [ ] Modular code using ES6
-* [ ] Scalable canvas (responsive)
-* [ ] Works on core browsers, Chrome, Safari, Firefox, and Edge
+* [x] Do all of the above using only native JavaScript (no libraries such as jQuery or React, although CSS and JavaScript preprocessors and polyfills are fine).
+* [x] Stick to JavaScript (e.g. not TypeScript or similar languages) for this exercise, and don't cheat
+* [x] Modular code using ES6
+* [x] Scalable canvas (responsive)
+* [x] Works on core browsers, Chrome, Safari, Firefox, and Edge
 * [ ] Write unit tests ( if they can run locally even better)
-* [ ] Detailed comments everywhere
-* [ ] Share my rationale
-* [ ] Consistent css style
-* [ ] Use eslint-airbnb and prettier
+* [x] Detailed comments everywhere
+* [x] Share my rationale
+* [x] Consistent css style
+* [x] Use eslint-airbnb and prettier
 * [ ] Performance
-* [ ] Code readability and organization
-* [ ] Think carefully about error handling
+* [x] Code readability and organization
+* [x] Think carefully about error handling
 * [ ] Make sure it works
 * [ ] Be gracious with documentation
 
@@ -80,7 +80,7 @@ Run the following command in the terminal:
 * [x] Use a fetch API to update a page with new results without refreshing the browser. Make sure we handle errors with the request.
 * [x] Display results in the console and decide which information we want. Potential to use filter or map to get the exact data we need. However, make sure we assign an ID using the index of each element so we can retrieve them later.
 * [ ] Store the retrieved elements in an Array or Hash to be used for the carousel. Warning! It's not good practice to store random global variables... makes me miss react and redux.
-* [ ] Once data is displayed, then we need to add an event listener to each image element so that clicking on the image opens a modal.
+* [x] Once data is displayed, then we need to add an event listener to each image element so that clicking on the image opens a modal.
 * [ ] Inside the modal, the image clicked should be displayed. This means we have to remove the images previously displayed in the modal.
 * [ ] Create left and right arrows in the modal.
 * [ ] Clicking on either the left or the right should access the object of images based on the main image displayed in the modal and decrease or increase the index, thus changing the image URL of the main image.
@@ -93,10 +93,10 @@ Run the following command in the terminal:
 
 ## Stretch
 
-* [ ] Create fun logo using Photoshop
+* [x] Create fun logo using Photoshop
 * [ ] Create a cool parallax effect
 * [ ] Display video in the background on landing page
-* [ ] Host site images on CDN
+* [x] Host site images on CDN
 * [ ] Preload images on landing page so they are cached to the browser for faster rendering.
 
 - `test/test.js`

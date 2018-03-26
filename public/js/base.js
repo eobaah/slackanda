@@ -58,6 +58,20 @@ const checkStatus = (response) => {
   throw error;
 };
 
+// function to update main modal images
+const updateMainModalImage = (element) => {
+  // remove images within modal
+  removeChild(modalItems);
+  const imageIndex = element.target.dataset.image;
+  const modalImageParent = createElement('div');
+  modalImageParent.className = 'modal-image-parent';
+  const mainModalImage = createElement('img');
+  mainModalImage.className = `modal-image modal-image-${imageIndex}`;
+  modalImageParent.appendChild(mainModalImage);
+  mainModalImage.src = getElement(`.image-number-${imageIndex}`).src;
+  getElement('.modal-items').appendChild(modalImageParent);
+};
+
 const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
   // thumbnail image display properties
   const height = 60;
@@ -71,6 +85,7 @@ const renderImages = (imageThumbnailUrl, imageWidth, imageHeight, index) => {
   imageTile.className += `image-tile-number-${index} img-tile-thumbnail cursor-pointer`;
   // add event listener to image tile which opens modal upon click
   eventCreator(imageTile, 'click', openModal);
+  eventCreator(imageTile, 'click', updateMainModalImage);
 
   // create the image thumbnail and assign unique identifiers for easier retrieval
   const imageElement = createElement('img');
@@ -119,9 +134,10 @@ const getImages = (event) => {
       imageContainer.appendChild(createImageContainerChild);
       images = response.value.map((image, index) =>
         renderImages(image.thumbnailUrl, image.thumbnail.width, image.thumbnail.height, index));
-      console.log('array of image objects', images);
+    })
+    .catch((err) => {
+      console.log('Fetch response failed with the following error: ', err);
     });
-  // .catch(console.log);
 };
 
 // assign event listener to the character buttons
