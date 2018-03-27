@@ -174,12 +174,8 @@ span.next-button:before {
 }
 
 @-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeIn {
@@ -202,10 +198,12 @@ span.next-button:before {
   .character-selectors {
     width: 20%;
   }
+
   .modal-items {
     flex-grow: 1;
     height: 70%;
   }
+
   /*  Modal styling for the main image selected */
   .modal-image-parent {
     margin: 5% 0;
@@ -216,15 +214,9 @@ span.next-button:before {
     max-height: 450px;
     width: auto;
   }
+  
   .modal-footer {
     height: 20%;
   }
 }
 
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-
-  /*  Modal styling for the main image selected */
-  .modal-image {
-  }
-}

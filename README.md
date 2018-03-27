@@ -2,7 +2,7 @@
 
 # Welcome to Slackanda
 
-Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect. View the deployed site at www.slackpanther.com
+Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lightbox effect. View the deployed site at www.slackpanther.com
 
 My personal goals are the following:
 
@@ -19,7 +19,7 @@ public/               # static assets
   css/                # css stylesheets
   img/                # Image assets will be stored here or on a CDN hosted on Azure
   js/                 # JavaScript files
-  tests/                 # test files for the application
+  tests/              # test files for the application
 views/                # html files
 ```
 
@@ -31,14 +31,14 @@ Run the command in the terminal so that the config loads correctly
 ## Installing your dependencies
 
 Run the following command in the terminal:
-`$ yarn install` or `$ npm install`... I'm not judging you.
+`$ yarn install` or `$ npm install` ... I'm not judging you.
 
 ### Starting your development server
 
 Run the following command in the terminal:
-`$ yarn dev` or `$ npm dev`
+`$ yarn dev` or `$ npm run dev`
 
-### Requirement overview
+### Specifications
 
 * [x] Create checklist for the assignment
 * [x] Access the Bing image search API and successfully retrieve data from it;
@@ -63,16 +63,16 @@ Run the following command in the terminal:
 
 ### My checklist for execution
 
-* [x] Setup Node environment on local repo
-* [x] Setup airbnb linter and prettier
+* [x] Set up Node environment on local repo
+* [x] Set up airbnb ESLint linter and prettier
 * [x] Create Azure resource
 * [x] Create image folders and deploy to CDN
 * [x] Connect local repo to Azure cloud resource
 * [x] Purchase www.slackpanther.com domain and connect to Azure resource
-* [x] Diagram basic experience using Balsamic or Photoshop
+* [x] Wireframe basic experience using Balsamic or Photoshop
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/landing-screen.png)
   * [x] ![Landing page](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/lighthouseview.png)
-* [x] Create HTML and CSS for baseline experience. Slackanda logo and view three buttons
+* [x] Create HTML and CSS for baseline experience. 
 * [x] Organize CSS where the properties for each class are in alphabetical order
 * [x] Use descriptive enough variable names where additional documentation isn't needed. Then document anyway :)
 * [x] We’ll need to create empty divs for the modal overlay and the modal itself
@@ -99,7 +99,9 @@ Run the following command in the terminal:
 * [ ] Create a cool parallax effect
 * [ ] Display video in the background on landing page
 
-- `test/test.js`
+## Tests
+
+`test/test.js`
 
 1.  Open up the browser console to test fetch requests to the Bing Image Search Api
 
