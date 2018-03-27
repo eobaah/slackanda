@@ -2,7 +2,7 @@
 
 # Welcome to Slakanda
 
-Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect.
+Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect. View the deployed site at www.slackpanther.com
 
 My personal goals are the following:
 
@@ -17,9 +17,9 @@ The app uses a simple file structure for an Express web app server that renders 
 ```sh
 public/               # static assets
   css/                # css stylesheets
-  js/                 # JavaScript files
   img/                # Image assets will be stored here or on a CDN hosted on Azure
-  test/                 # test files for the application
+  js/                 # JavaScript files
+  tests/                 # test files for the application
 views/                # html files
 ```
 
@@ -44,7 +44,7 @@ Run the following command in the terminal:
 * [x] Access the Bing image search API and successfully retrieve data from it;
 * [x] Display that data on a page;
 * [x] Update the UI of a page without refreshing (AJAX/fetch)
-* [ ] Build a polished user experience that makes people smile
+* [x] Build a polished user experience that makes people smile
 * [x] Do all of the above using only native JavaScript (no libraries such as jQuery or React, although CSS and JavaScript preprocessors and polyfills are fine).
 * [x] Stick to JavaScript (e.g. not TypeScript or similar languages) for this exercise, and don't cheat
 * [x] Modular code using ES6
@@ -58,7 +58,7 @@ Run the following command in the terminal:
 * [ ] Performance
 * [x] Code readability and organization
 * [x] Think carefully about error handling
-* [ ] Make sure it works
+* [x] Make sure it works
 * [x] Be gracious with documentation
 
 ### My checklist for execution
@@ -79,23 +79,23 @@ Run the following command in the terminal:
 * [x] Connect with Bing API (WARNING! I’ll be exposing subscription key and as a stretch goal, I should have a solution to resolve this. Perhaps use local storage for the use to input their key in the browser). See example here (https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)
 * [x] Use a fetch API to update a page with new results without refreshing the browser. Make sure we handle errors with the request.
 * [x] Display results in the console and decide which information we want. Potential to use filter or map to get the exact data we need. However, make sure we assign an ID using the index of each element so we can retrieve them later.
-* [ ] Store the retrieved elements in an Array or Hash to be used for the carousel. Warning! It's not good practice to store random global variables... makes me miss react and redux.
+* [x] Store the retrieved elements in an Array or Hash to be used for the carousel. Warning! It's not good practice to store random global variables... makes me miss react and redux.
 * [x] Once data is displayed, then we need to add an event listener to each image element so that clicking on the image opens a modal.
-* [ ] Inside the modal, the image clicked should be displayed. This means we have to remove the images previously displayed in the modal.
+* [x] Inside the modal, the image clicked should be displayed. This means we have to remove the images previously displayed in the modal.
 * [x] Create left and right arrows in the modal.
-* [ ] Clicking on either the left or the right should access the object of images based on the main image displayed in the modal and decrease or increase the index, thus changing the image URL of the main image.
-* [ ] Handle errors for the beginning and end of the carousel
+* [x] Clicking on either the left or the right should access the object of images based on the main image displayed in the modal and decrease or increase the index, thus changing the image URL of the main image.
+* [x] Handle errors for the beginning and end of the carousel
 
 ## Tests
 
-* [ ] Write 3 unit tests for the Bing Search API to successfully retrieve results that contain images.
-* [ ] Test UI components (stretch) using headless browser tests
+* [ ] Write 3 unit tests for each of the characters using the Bing Search API to successfully retrieve results that contain images.
 
 ## Stretch
 
 * [x] Host site images on CDN
 * [x] Create fun logo using Photoshop
-* [ ] Preload images on landing page so they are cached to the browser for faster rendering.
+* [ ] When page loads, run script to preload images on landing page so they are cached to the browser for faster rendering.
+* [ ] Test UI components (stretch) using headless browser tests
 * [ ] Create a cool parallax effect
 * [ ] Display video in the background on landing page
 

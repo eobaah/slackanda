@@ -36,6 +36,8 @@ const modalItems = getElement('.modal-items');
 const modalFooter = getElement('.modal-footer');
 const imageContainer = getElement('.image-container');
 const closeButton = getElement('.modal-close-btn');
+const prevButton = getElement('.prev-button');
+const nextButton = getElement('.next-button');
 
 // open modal when clicking on a thumbnail
 const openModal = () => {
@@ -102,7 +104,7 @@ const renderModalFooter = imageIndex => {
 
   // create main image and append to image tile wrapper
   const mainModalFooterImage = createElement('img');
-  mainModalFooterImage.className = `cursor-pointer modal-footer-image modal-image-${imageIndex}`;
+  mainModalFooterImage.className = `cursor-pointer main-modal-image modal-footer-image modal-image-${imageIndex}`;
   mainModalFooterImage.src = getElement(`.image-number-${imageIndex}`).src;
   mainModalFooterImage.dataset.image = imageIndex;
   mainModalFooterImageTile.appendChild(mainModalFooterImage);
@@ -250,6 +252,34 @@ const getImages = event => {
     });
 };
 
+// updates with the previous modal image by using the current image index
+const updatePrevModalImage = () => {
+  const currentIndex = Number(getElement('.main-modal-image').dataset.image);
+  let newIndex = currentIndex - 1;
+
+  if (newIndex < 0) {
+    newIndex = images.length - 1;
+  } else {
+    newIndex;
+  }
+  updateMainModalImage(images[newIndex]);
+  updateFooterModalImage(images[newIndex]);
+};
+
+// updates with the next modal image by using the current image index
+const updateNextModalImage = () => {
+  const currentIndex = Number(getElement('.main-modal-image').dataset.image);
+  let newIndex = currentIndex + 1;
+
+  if (newIndex > images.length - 1) {
+    newIndex = 0;
+  } else {
+    newIndex;
+  }
+  updateMainModalImage(images[newIndex]);
+  updateFooterModalImage(images[newIndex]);
+};
+
 // assign event listener to the character buttons
 getMultipleElements('.character-selectors').forEach(character => {
   eventCreator(character, 'click', getImages);
@@ -257,5 +287,9 @@ getMultipleElements('.character-selectors').forEach(character => {
 
 // attaching event listener to close modal button
 eventCreator(closeButton, 'click', closeModal);
+
+// attaching event listener to prev and next buttons
+eventCreator(prevButton, 'click', updatePrevModalImage);
+eventCreator(nextButton, 'click', updateNextModalImage);
 
 // });

@@ -35,6 +35,11 @@ body {
   height: 25%;
 }
 
+.instructions {
+  margin: 2% 5%;
+  text-align: center;
+}
+
 /* button to select characters */
 .button-container {
   display: flex;
@@ -45,9 +50,12 @@ body {
 }
 
 .character-selectors {
+  background-color: rgb(221, 21, 90);
+  color: #fff;
   cursor: pointer;
   border-radius: 5px;
-  height: 30px;
+  font-size: 1.5em;
+  height: 40px;
   margin: 2% 0;
 }
 
@@ -67,6 +75,10 @@ body {
   justify-content: space-between;
 }
 
+.img-tile-thumbnail {
+  margin: 0.5%;
+}
+
 @media only screen and (min-width: 600px) {
   /* For tablets: */
   /* button to select characters */
@@ -77,6 +89,11 @@ body {
 
   .character-selectors {
     width: 20%;
+  }
+
+  .image-container {
+    display: grid;
+    width: 50%;
   }
 }
 

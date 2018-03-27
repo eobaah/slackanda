@@ -36,7 +36,7 @@
   padding: 20px;
   position: absolute;
   top: 10%;
-  width: 60%;
+  width: 90%;
   z-index: 3;
   animation-name: fadeIn;
   animation-duration: 1s;
@@ -77,7 +77,7 @@ img.hover-highlight {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  flex-grow: 1;
+  height: 70%;
 }
 
 span.prev-button:before {
@@ -91,18 +91,21 @@ span.next-button:before {
 }
 
 .modal-image-parent {
+  display: flex;
+  justify-content: center;
   margin: 5% 0;
-  height: 50%;
+  width: 100%;
 }
 
 .modal-image {
-  margin: 1% 0;
-  max-height: 300px;
+  width: 100%;
+  height: 400px;
 }
 
 .modal-arrow-buttons {
   display: flex;
   justify-content: space-between;
+  height: 5%;
 }
 
 .modal-arrow {
@@ -119,7 +122,7 @@ span.next-button:before {
   flex-direction: row;
   justify-content: space-between;
   margin: 2% 0;
-  height: 30%;
+  height: 20%;
 }
 
 .modal-footer-image-parent {
@@ -138,12 +141,8 @@ span.next-button:before {
 }
 
 .modal-footer-image {
-  max-height: 60px;
-  width: auto;
-}
-
-.modal-image-highlight {
-  border-bottom: solid rgb(198, 29, 35);
+  max-width: 60px;
+  height: auto;
 }
 
 .show-modal {
@@ -202,9 +201,18 @@ span.next-button:before {
   .character-selectors {
     width: 20%;
   }
-
+  .modal-items {
+    flex-grow: 1;
+  }
   /*  Modal styling for the main image selected */
+  .modal-image-parent {
+    margin: 5% 0;
+  }
+
   .modal-image {
+    margin: 1% 0;
+    max-height: 450px;
+    width: auto;
   }
 }
 
