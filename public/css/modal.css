@@ -71,13 +71,14 @@ img.hover-highlight {
 
 .modal-close-btn {
   cursor: pointer;
+  font-size: 1.5em;
 }
 
 .modal-items {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 70%;
+  height: 60%;
 }
 
 span.prev-button:before {
@@ -122,7 +123,7 @@ span.next-button:before {
   flex-direction: row;
   justify-content: space-between;
   margin: 2% 0;
-  height: 20%;
+  height: 30%;
 }
 
 .modal-footer-image-parent {
@@ -203,6 +204,7 @@ span.next-button:before {
   }
   .modal-items {
     flex-grow: 1;
+    height: 70%;
   }
   /*  Modal styling for the main image selected */
   .modal-image-parent {
@@ -213,6 +215,9 @@ span.next-button:before {
     margin: 1% 0;
     max-height: 450px;
     width: auto;
+  }
+  .modal-footer {
+    height: 20%;
   }
 }
 
