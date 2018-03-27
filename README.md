@@ -50,12 +50,12 @@ Run the following command in the terminal:
 * [x] Modular code using ES6
 * [x] Scalable canvas (responsive)
 * [x] Works on core browsers, Chrome, Safari, Firefox, and Edge
-* [ ] Write unit tests ( if they can run locally even better)
+* [x] Write unit tests ( if they can run locally even better)
 * [x] Detailed comments everywhere
 * [x] Share my rationale
 * [x] Consistent css style
 * [x] Use eslint-airbnb and prettier
-* [ ] Performance
+* [x] Performance
 * [x] Code readability and organization
 * [x] Think carefully about error handling
 * [x] Make sure it works
@@ -88,15 +88,32 @@ Run the following command in the terminal:
 
 ## Tests
 
-* [ ] Write 3 unit tests for each of the characters using the Bing Search API to successfully retrieve results that contain images.
+* [x] Write 3 unit tests for each of the characters using the Bing Search API to successfully retrieve results that contain images.
 
 ## Stretch
 
 * [x] Host site images on CDN
 * [x] Create fun logo using Photoshop
-* [ ] When page loads, run script to preload images on landing page so they are cached to the browser for faster rendering.
+* [ ] When page loads, run script to load images for the landing page so they are cached to the browser for faster rendering
 * [ ] Test UI components (stretch) using headless browser tests
 * [ ] Create a cool parallax effect
 * [ ] Display video in the background on landing page
 
 - `test/test.js`
+
+1.  Open up the browser console to test fetch requests to the Bing Image Search Api
+
+2.  You can test the API for each of the characters:
+
+* `testSearch(character1)`
+* `testSearch(character2)`
+* `testSearch(character3)`
+
+3.  You can also test the API using the actress' first name
+
+* `testSearch('nakia')`
+* `testSearch('okoye')`
+* `testSearch('shuri')`
+
+See the example below:
+![](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/testSnapshot.png)
