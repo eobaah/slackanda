@@ -1,6 +1,6 @@
 ![](https://cdnresoltzcus.blob.core.windows.net/images/thumbnails/trx/slack-panther-logo.png)
 
-# Welcome to Slakanda
+# Welcome to Slackanda
 
 Use the Bing search API to retrieve images of various characters from the incredible Black Panther movie. Display the images using a lighthouse effect. View the deployed site at www.slackpanther.com
 
