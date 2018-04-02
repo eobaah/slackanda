@@ -9,7 +9,7 @@ const character2 = 'nakia';
 const character3 = 'shuri';
 
 // handle error from fetch request
-const checkStatus = response => {
+const checkStatusTest = response => {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
@@ -47,7 +47,7 @@ const testSearch = actress => {
     };
 
     fetch(url, fetchOptions)
-      .then(checkStatus)
+      .then(checkStatusTest)
       .then(response => response.json())
       .then(response => {
         response = response.value.length;
