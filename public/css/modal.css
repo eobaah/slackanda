@@ -35,7 +35,7 @@
   margin: auto;
   padding: 20px;
   position: absolute;
-  top: 10%;
+  top: 2%;
   width: 90%;
   z-index: 3;
   animation-name: fadeIn;
@@ -94,13 +94,13 @@ span.next-button:before {
 .modal-image-parent {
   display: flex;
   justify-content: center;
-  margin: 5% 0;
   width: 100%;
 }
 
 .modal-image {
+  align-self: center;
+  max-height: 100%;
   width: 100%;
-  height: 400px;
 }
 
 .modal-arrow-buttons {
@@ -122,7 +122,6 @@ span.next-button:before {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 2% 0;
   height: 30%;
 }
 
@@ -138,12 +137,12 @@ span.next-button:before {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 30%;
+  width: 22%;
 }
 
 .modal-footer-image {
-  max-width: 60px;
-  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .show-modal {
@@ -157,7 +156,7 @@ span.next-button:before {
     opacity: 0;
   }
   to {
-    top: 10%;
+    top: 2%;
     opacity: 1;
   }
 }
@@ -168,7 +167,7 @@ span.next-button:before {
     opacity: 0;
   }
   to {
-    top: 10%;
+    top: 2%;
     opacity: 1;
   }
 }
@@ -205,21 +204,31 @@ span.next-button:before {
 
   .modal-items {
     flex-grow: 1;
-    height: 70%;
   }
 
   /*  Modal styling for the main image selected */
+
   .modal-image-parent {
-    margin: 5% 0;
+    height: 100%;
   }
 
   .modal-image {
     margin: 1% 0;
-    max-height: 450px;
+    max-height: 100%;
     width: auto;
   }
+
   .modal-footer {
-    height: 20%;
+  }
+
+  .modal-footer-image-tile {
+    max-height: 90%;
+    max-width: 100%;
+  }
+
+  .modal-footer-image {
+    max-height: 100%;
+    width: 42%;
   }
 }
 
