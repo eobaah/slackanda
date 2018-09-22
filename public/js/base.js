@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const host = 'https://api.cognitive.microsoft.com';
     const path = '/bing/v7.0/images/search?q=';
     const sizeFilter = '&w=200&h=200';
-    const subscriptionKey = 'aa81bfbc07984ac5b3aac2130e041cb6';
+    const subscriptionKey = '56dffb127d604bc7b64aecfd2919c437';
     const url = `${host}${path}${searchTerm}${sizeFilter}`;
 
     const fetchOptions = {
