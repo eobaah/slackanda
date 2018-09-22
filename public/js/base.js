@@ -321,49 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return imageTile;
   };
 
-<<<<<<< HEAD
-  // fetch request to retrieve images from search api
-  const getImages = event => {
-    removeChild(imageContainer);
-    const selectedCharacter = event.target.dataset.actress;
-    // additional search terms to increase search relevance
-    const additionalSearchTerms = ' black panther movie poster';
-    const searchTerm = encodeURIComponent(`${selectedCharacter}${additionalSearchTerms}`);
-    const host = 'https://api.cognitive.microsoft.com';
-    const path = '/bing/v7.0/images/search?q=';
-    const sizeFilter = '&w=200&h=200';
-    const subscriptionKey = '56dffb127d604bc7b64aecfd2919c437';
-    const url = `${host}${path}${searchTerm}${sizeFilter}`;
-
-    const fetchOptions = {
-      method: 'GET',
-      headers: {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        Accept: 'application/json'
-      }
-    };
-
-    fetch(url, fetchOptions)
-      .then(checkStatus)
-      .then(response => response.json())
-      .then(response => {
-        // create a child element which will be the main parent for all images created below
-        const createImageContainerChild = createElement('div');
-        createImageContainerChild.setAttribute('id', 'image-container-child');
-        // append this child to the main image container. Creating a single entrypoint
-        // allows us to remove the images without looping through all the child elements
-        imageContainer.appendChild(createImageContainerChild);
-        images = response.value.map((image, index) =>
-          renderImages(image.thumbnailUrl, image.thumbnail.width, image.thumbnail.height, index)
-        );
-      })
-      .catch(err => {
-        console.log('Fetch response failed with the following error: ', err);
-      });
-  };
-
-=======
->>>>>>> e2a188ef32445db9fb82220206b4724e73d397b4
   // updates with the previous modal image by using the current image index
   const updatePrevModalImage = () => {
     const currentIndex = Number(getElementBySelector('.modal-image').dataset.image);
